@@ -23,7 +23,7 @@ export const getUserCredits = async (req: Request, res: Response) =>{
     }
 }
 
-// Controller Function to Create New Project
+//Controller Function to Create New Project
 
 export const createUserProject = async (req: Request, res: Response) =>{
 
@@ -72,12 +72,12 @@ export const createUserProject = async (req: Request, res: Response) =>{
         data: {credits: {decrement: 5}}
        })
 
-       res.json({projectId: project.id})
+        res.json({projectId: project.id})
 
        //enhance user prompt
 
        const promptEnhanceResponse = await openai.chat.completions.create({
-        model: 'kwaipilot/kat-coder-pro:free',
+        model: 'mistralai/devstral-2512:free',
         messages: [
             {
                 role: 'system',
@@ -121,7 +121,7 @@ export const createUserProject = async (req: Request, res: Response) =>{
        // Generate website Code 
 
        const codeGenerationResponse = await openai.chat.completions.create({
-        model: 'kwaipilot/kat-coder-pro:free',
+        model: 'mistralai/devstral-2512:free',
         messages: [
             {
                 role: 'system',
@@ -217,8 +217,12 @@ export const createUserProject = async (req: Request, res: Response) =>{
         })
         console.log(error.code || error.message);
         res.status(500).json({ message: error.message});
+        
     }
 }
+
+
+
 
 // Controller Function to get a single user project
 

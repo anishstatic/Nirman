@@ -52,7 +52,7 @@ export const makeRevision = async (req: Request, res: Response) =>{
        // Enhance user prompt
 
        const promptEnhanceResponse = await openai.chat.completions.create({
-        model: 'kwaipilot/kat-coder-pro:free',
+        model: 'mistralai/devstral-2512:free',
         messages: [
             {
                 role: 'system',
@@ -94,7 +94,7 @@ export const makeRevision = async (req: Request, res: Response) =>{
        // Generate website code
 
        const codeGenerationResponse = await openai.chat.completions.create({
-        model: 'kwaipilot/kat-coder-pro:free',
+        model: 'mistralai/devstral-2512:free',
         messages: [
             {
                 role: 'system',
@@ -175,6 +175,8 @@ export const makeRevision = async (req: Request, res: Response) =>{
         res.status(500).json({ message: error.message});
     }
 }
+
+
 
 // Controller Function to rollback to a specific version
 
